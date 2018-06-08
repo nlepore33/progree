@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+<div class="form-group">
+  <h1>Progress to Graduation</h1>
+    <div class="progress">
+      <div class="progress-bar {{ gradcolor }}" role="progressbar" aria-valuenow="{{ pertodegree }}"
+        aria-valuemin="0" aria-valuemax="100" style="width:{{ pertodegree }}%">
+            {{ pertodegree }}%
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<h2>General Education</h2>
+
+<div class="progress">
+  <div class="progress-bar bg-info" role="progressbar" aria-valuenow="{{ genedpercent }}"
+  aria-valuemin="0" aria-valuemax="100" style="width:{{ genedpercent }}%">
+    {{ genedpercent }}%
+  </div>
+</div>
+
+<h5>Completed: </h5>
+  <h6>
+    {% for each in finishedgeneds %}
+      - {{ each }}
+    {% endfor %}
+  </h6>
+
+<h5>To Be Completed: </h5>
+  <h6>
+    {% for each in unfinishedgeneds %}
+      - {{ each }}
+    {% endfor %}
+  </h6>
+
+<hr>
+
+<h3>Where You Study Most</h3>
+
+<div class="progress">
+  {% for each in departobj %}
+  <div class="progress-bar {{ each.c }}" role="progressbar" style="width:{{ each.a }}%">
+    {{ each.n }} ({{ each.a }}%)
+  </div>
+  {% endfor %}
+</div>
+
+<h5>{{ mostdepart }}</h5>
+
+<hr>
+
+<h3>Overall Rating of All Courses</h3>
+
+<div class="progress">
+  <div class="progress-bar bg-danger" role="progressbar" style="width:{{ onespercent }}%">
+    1s
+  </div>
+  <div class="progress-bar bg-warning" role="progressbar" style="width:{{ twospercent }}%">
+    2s
+  </div>
+  <div class="progress-bar" role="progressbar" style="width:{{ threespercent }}%">
+    3s
+  </div>
+  <div class="progress-bar bg-info" role="progressbar" style="width:{{ fourspercent }}%">
+    4s
+  </div>
+  <div class="progress-bar bg-success" role="progressbar" style="width:{{ fivespercent }}%">
+    5s
+  </div>
+</div>
+<h5>Average: {{ ratingavg }}</h5>
+
+<hr>
+
+<h3>Overall Difficulty of All Courses</h3>
+
+<div class="progress">
+  <div class="progress-bar bg-danger" role="progressbar" style="width:{{ onespercentd }}%">
+    1s
+  </div>
+  <div class="progress-bar bg-warning" role="progressbar" style="width:{{ twospercentd }}%">
+    2s
+  </div>
+  <div class="progress-bar" role="progressbar" style="width:{{ threespercentd }}%">
+    3s
+  </div>
+  <div class="progress-bar bg-info" role="progressbar" style="width:{{ fourspercentd }}%">
+    4s
+  </div>
+  <div class="progress-bar bg-success" role="progressbar" style="width:{{ fivespercentd }}%">
+    5s
+  </div>
+</div>
+<h5>Average: {{ ratingavgd }}</h5>
+
+<hr>
+
+<h3>Overall Workload Hours of All Courses (in hours)</h3>
+
+<div class="progress">
+  <div class="progress-bar bg-danger" role="progressbar" style="width:{{ onespercentw }}%">
+    1s (<3)
+  </div>
+  <div class="progress-bar bg-warning" role="progressbar" style="width:{{ twospercentw }}%">
+    2s (3-6)
+  </div>
+  <div class="progress-bar" role="progressbar" style="width:{{ threespercentw }}%">
+    3s (7-10)
+  </div>
+  <div class="progress-bar bg-info" role="progressbar" style="width:{{ fourspercentw }}%">
+    4s (11-14)
+  </div>
+  <div class="progress-bar bg-success" role="progressbar" style="width:{{ fivespercentw }}%">
+    5s (>14)
+  </div>
+</div>
+<h5>Average: {{ ratingavgw }} Hours per Class</h5>
+
+<hr>
+
+
+{% endblock %}

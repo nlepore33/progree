@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Class Search
+{% endblock %}
+
+{% block main %}
+    <form action="/classsearch" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="classsearch" placeholder="Enter Class Name" type="text"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+
+    <br></br>
+
+    <table class="table table-striped" style="width:100%">
+        <tr>
+            <th>Number</th>
+            <th>Class Name</th>
+        </tr>
+        {% for x in range(listlen) %}
+            <tr>
+                <td>{{ numtitlelist[x].num }}</td>
+                <td>{{ numtitlelist[x].title }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

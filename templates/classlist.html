@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Class List
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped" style="width:100%">
+        <tr>
+            <th>Number</th>
+            <th>Class Name</th>
+        </tr>
+        {% for x in range(listlen) %}
+            <tr>
+                <td>{{ numtitlelist[x].num }}</td>
+                <td>{{ numtitlelist[x].title }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

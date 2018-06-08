@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Remove Class
+{% endblock %}
+
+{% block main %}
+    <form action="/removeclass" method="post">
+        <h2>Choose Class to Remove</h2>
+        <div class="form-group">
+            <select class="form-control" name="title">
+                <option disabled selected value="">Class Name</option>
+
+                    {% for each in classes %}
+                        <option value="{{ each.title }}">{{each.title}}</option>
+                    {% endfor %}
+
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Remove</button>
+    </form>
+{% endblock %}
